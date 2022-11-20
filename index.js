@@ -26,6 +26,8 @@ fs.readFile("registration.html", (err, registration) => {
   registerContent = registration;
 });
 
+let args = require("minimist")(process.argv.slice(2));
+
 http
   .createServer((request, response) => {
     let url = request.url;
@@ -45,4 +47,4 @@ http
         break;
     }
   })
-  .listen(["port"]);
+  .listen(args["port"]);
